@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미니게임 천국 - 온라인 웹게임 포털</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f19;
+    --panel: #111827;
+    --border: #1f2937;
+    --text: #f9fafb;
+    --muted: #9ca3af;
+    --gold: #f59e0b;
+    --red: #dc2626;
+    --green: #10b981;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, var(--gold), #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header p {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  main {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+    margin-auto: 0;
+  }
+
+  .game-card {
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+
+  .game-card:hover {
+    transform: translateY(-5px);
+    border-color: #374151;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  .game-icon {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background: radial-gradient(circle, rgba(31,41,55,0.5) 0%, rgba(17,24,39,1) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* 게임별 아이콘 배경 테마색 살짝 부여 */
+  .card-onecard .game-icon { border-top: 4px solid var(--gold); }
+  .card-gostop .game-icon { border-top: 4px solid var(--red); }
+  .card-poker .game-icon { border-top: 4px solid var(--green); }
+
+  .game-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .game-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .game-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .btn-play {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+
+  .game-card:hover .btn-play {
+    background-color: var(--text);
+    color: #111827;
+    border-color: var(--text);
+  }
+
+  footer {
+    margin-top: 3rem;
+    color: #4b5563;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>GAME PORTAL</h1>
+  <p>원하는 게임을 선택하여 플레이하세요!</p>
+</header>
+
+<main>
+  <a href="onecard.html" class="game-card card-onecard">
+    <div class="game-icon">🃏</div>
+    <div class="game-info">
+      <div class="game-title">원카드 (One Card)</div>
+      <div class="game-desc">짜릿한 심리전과 전략! 카드를 먼저 모두 털어내는 사람이 승리하는 클래식 카드 게임입니다.</div>
+      <div class="btn-play">게임하기</div>
+    </div>
+  </a>
+
+  <a href="gostop.html" class="game-card card-gostop">
+    <div class="game-icon">🎴</div>
+    <div class="game-info">
+      <div class="game-title">고스톱 & 코주부</div>
+      <div class="game-desc">화투패로 즐기는 전통적인 손맛! 고스톱과 코주부 게임을 실시간 혹은 오프라인으로 즐겨보세요.</div>
+      <div class="btn-play">게임하기</div>
+    </div>
+  </a>
+
+  <a href="poker.html" class="game-card card-poker">
+    <div class="game-icon">🏆</div>
+    <div class="game-info">
+      <div class="game-title">텍사스 홀덤 포커</div>
+      <div class="game-desc">정통 마인드 스포츠 텍사스 홀덤! 과감한 베팅과 정교한 블러핑으로 칩을 모두 획득하세요.</div>
+      <div class="btn-play">게임하기</div>
+    </div>
+  </a>
+</main>
+
+<footer>
+  <p>&copy; 2026 Web Game Collection. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
